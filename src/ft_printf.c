@@ -6,7 +6,7 @@
 /*   By: jzampier <jzampier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 12:22:53 by jzampier          #+#    #+#             */
-/*   Updated: 2026/07/15 20:23:47 by jzampier         ###   ########.fr       */
+/*   Updated: 2026/07/15 20:31:33 by jzampier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	char	*str = "olá mundo";
+	int n = 4500;
 
-	ft_printf("%p\n", &str);
-	printf("%p\n", &str);
+	ft_printf("%d\n", ft_putnbr(n));
 }

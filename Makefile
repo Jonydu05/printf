@@ -6,7 +6,6 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 
 SRC = 	src/ft_printf.c \
-		src/ft_printf.h \
 		src/do_check.c \
 		src/handle_put.c
 

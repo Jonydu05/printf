@@ -6,7 +6,7 @@
 /*   By: jzampier <jzampier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 12:22:50 by jzampier          #+#    #+#             */
-/*   Updated: 2026/07/15 19:05:28 by jzampier         ###   ########.fr       */
+/*   Updated: 2026/07/15 20:31:03 by jzampier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_putnbr(int n)
 	if (n1 > 9)
 		count += ft_putnbr(n1 / 10);
 	count += ft_putchar((n1 % 10) + '0');
-	return (count + 1);
+	return (count);
 }
 
 int	ft_puthex(unsigned long n, char *base)
