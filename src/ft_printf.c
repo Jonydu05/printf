@@ -1,28 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jzampier <jzampier@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/15 12:22:53 by jzampier          #+#    #+#             */
+/*   Updated: 2026/07/15 20:23:47 by jzampier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int	ft_printf(const char *str, ...)
 {
-	va_list args;
-	int count;
+	va_list	args;
+	int		count;
 
-	if (!str)											// Se não houver argumentos,
-		return (-1);									// Retorna (-1), codigo de saida para erro;
-	va_start(args, str);								// Comeca a leitura dos argumentos recebidos
-	count = 0;											// Setando para zero o contador de bytes escritos
-	while (*str)										// Começa loop do argumento
+	if (!str)
+		return (-1);
+	va_start(args, str);
+	count = 0;
+	while (*str)
 	{
-		if (*str == '%')								// Se o caractere atual for um %
-			count = do_check(*(++str), *args);			// Passo para o prox caracter e o args atual
+		if (*str == '%')
+			count += do_check(*(++str), &args);
 		else
-			count = do_print(*str);						// Se não for %, só printa na tela;
-		str++;											// Passo para o proximo caractere;
+			count += ft_putchar(*str);
+		str++;
 	}
-	va_end(args);										// Finalizo a leitura dos argumentos
-	return (count);										// Retorno a contagem de bytes impressos;
+	va_end(args);
+	return (count);
 }
 
+#include <stdio.h>
 
-// Falta implementação: do_check() + do_print()
-// Falta entender como funciona exatamente o va_list, etc.
+int	main(void)
+{
+	char	*str = "olá mundo";
 
+	ft_printf("%p\n", &str);
+	printf("%p\n", &str);
+}

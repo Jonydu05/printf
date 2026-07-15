@@ -1,44 +1,70 @@
-int ft_putchar(char c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_put.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jzampier <jzampier@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/15 12:22:50 by jzampier          #+#    #+#             */
+/*   Updated: 2026/07/15 19:05:28 by jzampier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	return (i + 1); // ja q começa no zero e eu preciso da qtd escrita;
+	while (str[i])
+		i += ft_putchar(str[i]);
+	return (i + 1);
 }
 
-// como vou fazer a contagem desse?
 int	ft_putnbr(int n)
 {
 	long	n1;
+	int		count;
 
 	n1 = n;
+	count = 0;
 	if (n1 < 0)
 	{
-		ft_putchar('-');
+		count += ft_putchar('-');
 		n1 *= -1;
 	}
 	if (n1 > 9)
-		ft_putnbr(n1 / 10);
-	ft_putchar((n1 % 10) + '0');
+		count += ft_putnbr(n1 / 10);
+	count += ft_putchar((n1 % 10) + '0');
+	return (count + 1);
 }
 
-int ft_putptr(unsigned long ptr)
+int	ft_puthex(unsigned long n, char *base)
 {
+	int	count;
 
+	count = 0;
+	if (n >= 16)
+		count += ft_puthex(n / 16, base);
+	count += ft_putchar(base[n % 16]);
+	return (count + 1);
 }
 
-int ft_puthex(unsigned int n, char *base)
+int	ft_putptr(unsigned long ptr)
 {
+	int	count;
 
+	if (!ptr)
+		return (ft_putstr("(nil)"));
+	count = 0;
+	count += ft_putstr("0x");
+	count += ft_puthex(ptr, "0123456798abcdef");
+	return (count);
 }
