@@ -6,7 +6,7 @@
 /*   By: jzampier <jzampier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 12:22:50 by jzampier          #+#    #+#             */
-/*   Updated: 2026/07/16 17:01:37 by jzampier         ###   ########.fr       */
+/*   Updated: 2026/07/16 17:14:29 by jzampier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	if (!str)
+		i += ft_putstr("(null)");
+	while (str && str[i])
 		i += ft_putchar(str[i]);
 	return (i);
 }
