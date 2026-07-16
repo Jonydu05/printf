@@ -4,6 +4,11 @@
 ```
 #include <stdio.h>
 
+#define INT_MAX   __INT_MAX__
+#define LONG_MAX  __LONG_MAX__
+#define INT_MIN   (-__INT_MAX__  -1)
+#define LONG_MIN  (-__LONG_MAX__ -1L)
+
 int	main(void)
 {
 	char 			c1 = 'z';

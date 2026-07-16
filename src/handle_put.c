@@ -6,7 +6,7 @@
 /*   By: jzampier <jzampier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 12:22:50 by jzampier          #+#    #+#             */
-/*   Updated: 2026/07/16 16:02:15 by jzampier         ###   ########.fr       */
+/*   Updated: 2026/07/16 17:01:37 by jzampier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ int	ft_putptr(unsigned long ptr)
 		return (ft_putstr("(nil)"));
 	count = 0;
 	count += ft_putstr("0x");
-	count += ft_puthex(ptr, "0123456798abcdef");
+	count += ft_puthex(ptr, "0123456789abcdef");
 	return (count);
 }
