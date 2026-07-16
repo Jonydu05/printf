@@ -6,7 +6,7 @@
 /*   By: jzampier <jzampier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 12:22:53 by jzampier          #+#    #+#             */
-/*   Updated: 2026/07/15 20:31:33 by jzampier         ###   ########.fr       */
+/*   Updated: 2026/07/16 16:04:11 by jzampier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (count);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	int n = 4500;
-
-	ft_printf("%d\n", ft_putnbr(n));
 }

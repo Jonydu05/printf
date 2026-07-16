@@ -6,7 +6,7 @@
 /*   By: jzampier <jzampier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 12:22:50 by jzampier          #+#    #+#             */
-/*   Updated: 2026/07/15 20:31:03 by jzampier         ###   ########.fr       */
+/*   Updated: 2026/07/16 16:02:15 by jzampier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 		i += ft_putchar(str[i]);
-	return (i + 1);
+	return (i);
 }
 
-int	ft_putnbr(int n)
+int	ft_putnbr(long n)
 {
 	long	n1;
 	int		count;
@@ -54,7 +54,7 @@ int	ft_puthex(unsigned long n, char *base)
 	if (n >= 16)
 		count += ft_puthex(n / 16, base);
 	count += ft_putchar(base[n % 16]);
-	return (count + 1);
+	return (count);
 }
 
 int	ft_putptr(unsigned long ptr)
