@@ -12,6 +12,13 @@
 
 #include "ft_printf.h"
 
+// CORRIGIR:
+// talvez eu precise criar um put unsigned int, pq se for unsigned int negativo e TEM QUE dar overflow
+// mas o meu nao da overflow por que é long
+// TEM QUE SER IGUAL AO PRINTF ORIGINAL
+// Nos testes os ponteiros estao diferentes tbm
+// tem algo de errado qnd tento printar o INT_MIN tbm
+
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
@@ -27,6 +34,8 @@ int	ft_printf(const char *str, ...)
 			count += do_check(*(++str), &args);
 		else
 			count += ft_putchar(*str);
+		if (*str == '\0')
+			break ;
 		str++;
 	}
 	va_end(args);

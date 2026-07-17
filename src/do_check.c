@@ -14,6 +14,8 @@
 
 int	do_check(char c, va_list *args)
 {
+	if (!c)
+		return (0);
 	if (c == 'c')
 		return (ft_putchar(va_arg(*args, int)));
 	if (c == 's')

@@ -27,4 +27,13 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+comp: re
+	$(MAKE) clean
+	clear
+
+test: comp
+	$(CC) $(CFLAGS) -I src -o teste.o main.c $(NAME)
+	clear
+	./teste.o
+
+.PHONY: all clean fclean re comp
